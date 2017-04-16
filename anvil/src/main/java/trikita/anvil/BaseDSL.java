@@ -674,7 +674,9 @@ public class BaseDSL implements Anvil.AttributeSetter {
                 break;
             case "weight":
                 if (v.getLayoutParams() instanceof LinearLayout.LayoutParams && value instanceof Float) {
-                    ((LinearLayout.LayoutParams) v.getLayoutParams()).weight = (float) value;
+                    LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) v.getLayoutParams();
+                    lp.weight = (float) value;
+                    v.setLayoutParams(lp);
                     return true;
                 }
                 break;
